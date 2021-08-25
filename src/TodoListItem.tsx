@@ -5,14 +5,16 @@ import { checkBoxClick, listDelete } from "./TodoList";
 interface TodoListItemProps {
   todo: Todo;
   toggleTodo: ToggleTodo;
+  number: number;
 }
 
 export const TodoListItem: React.FC<TodoListItemProps> = ({
   todo,
   toggleTodo,
+  number,
 }) => {
   const [mloginErr, setLoginErr] = useState(false);
-
+  console.log("2", todo, number);
   const onDelete = async (available: boolean) => {
     try {
       //완료
@@ -42,7 +44,7 @@ export const TodoListItem: React.FC<TodoListItemProps> = ({
             type="checkbox"
             checked={todo.complete}
             onChange={() => {
-              let mtodos = checkBoxClick(todo);
+              let mtodos = checkBoxClick(todo, number);
               let available: boolean = toggleTodo(todo, mtodos);
               onDelete(available);
             }}
@@ -59,7 +61,7 @@ export const TodoListItem: React.FC<TodoListItemProps> = ({
           type="button"
           className="item-delete-btn btn btn-white"
           onClick={() => {
-            let mtodos = listDelete(todo);
+            let mtodos = listDelete(todo, number);
             toggleTodo(todo, mtodos);
           }}
         />
