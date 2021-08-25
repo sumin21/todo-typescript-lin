@@ -1,4 +1,65 @@
-.complete {
+.complete-item {
     text-decoration: line-through;
     color: grey;
+}
+
+.check-box-container {
+    position: relative;
+}
+
+.item-check-box+.check-box {
+    position: absolute;
+    top: 2px;
+    left: 0;
+    width: 16px;
+    height: 16px;
+    background-color: white;
+    border: solid 1px var(--color-purple);
+    transition: all 0.1s ease-in-out;
+}
+
+.check-box::after {
+    display: block;
+    top: 1px;
+    left: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid var(--color-purple);
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+    content: '';
+    position: absolute;
+}
+
+.item-check-box:checked+.check-box {
+    background-color: var(--color-purple);
+    border: solid 1px var(--color-purple);
+    transition: all 0.1s ease-in-out;
+}
+
+.item-check-box:checked+.check-box::after {
+    display: block;
+    top: 1px;
+    left: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid #fff;
+    border-width: 0 2px 2px 0;
+}
+
+.item-text {
+    font-size: 18px;
+    pointer-events: none;
+
+}
+
+.item-delete-btn{
+    width: 20px;
+    height: 20px;
+    background-image: url("./list_delete_btn.png");
+    background-repeat: no-repeat;
+    background-color: white;
+    background-size: contain;
+    display: inline-block;
+    vertical-align: middle;
 }

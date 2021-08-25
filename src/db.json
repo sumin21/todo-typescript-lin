@@ -1,0 +1,12 @@
+{
+  "users": [
+    {
+      "id": "react_hoon",
+      "password": "1234"
+    },
+    {
+      "id": "tnals",
+      "password": "1234"
+    }
+  ]
+}

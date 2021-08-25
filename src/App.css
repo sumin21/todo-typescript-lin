@@ -1,0 +1,26 @@
+.todo-elements-title {
+    height: 100px;
+    border-bottom: 2px solid rgb(138, 120, 238);
+    box-shadow: 5px 5px 7px rgb(138, 120, 238);
+}
+
+.todo-elements-title-text {
+    position: relative;
+    top: 20px;
+    font-weight: bold;
+    font-size: 40px;
+    margin-left: 20px;
+}
+
+.todo-elements {
+    margin: 20px 20px;
+    border-radius: 6px;
+
+}
+
+.todo-element-title {
+    margin-bottom: 10px;
+    font-size: 23px;
+    font-weight: bold;
+    margin-left: 10px;
+}
