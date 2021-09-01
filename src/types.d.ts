@@ -3,6 +3,8 @@ type Todo = {
     complete: boolean;
 };
 
-type ToggleTodo = (selectedTodo: Todo, mtodos:Array<Todo>) => boolean;
+type ToggleTodo = (selectedTodo: Todo) => boolean;
 
 type AddTodo = (newTodo: string) => void;
+
+type DeleteTodo = (checkedTodo: Todo) => void;

@@ -20,7 +20,7 @@ export const AddTodoForm: React.FC<AddTodoFormProps> = ({ addTodo }) => {
 
   return (
     <form>
-      <div className="input-group mb-3">
+      <div className="input-group mb-3 pt-2 border-top">
         <input
           type="text"
           value={newTodo}
@@ -38,5 +38,4 @@ export const AddTodoForm: React.FC<AddTodoFormProps> = ({ addTodo }) => {
       </div>
     </form>
   );
-
 };

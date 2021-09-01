@@ -20,7 +20,15 @@
 
 .todo-element-title {
     margin-bottom: 10px;
-    font-size: 23px;
+    font-size: 22px;
     font-weight: bold;
     margin-left: 10px;
 }
+.title-input-text {
+    font-family: 'Jeju Gothic', sans-serif !important;
+    font-size: 22px !important;
+    font-weight: bold !important;
+    letter-spacing: 1px !important;
+}
+
+input:focus {outline:none;}

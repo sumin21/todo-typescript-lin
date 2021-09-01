@@ -1,28 +1,27 @@
 import React, { useState } from "react";
 import "./TodoListItem.css";
-import { checkBoxClick, listDelete } from "./TodoList";
 
 interface TodoListItemProps {
   todo: Todo;
   toggleTodo: ToggleTodo;
-  number: number;
+  deleteTodo: DeleteTodo;
 }
 
 export const TodoListItem: React.FC<TodoListItemProps> = ({
   todo,
   toggleTodo,
-  number,
+  deleteTodo,
 }) => {
-  const [mloginErr, setLoginErr] = useState(false);
-  console.log("2", todo, number);
+  const [deleteBtn, deleteBtnBlock] = useState(false);
+  console.log("2", todo);
   const onDelete = async (available: boolean) => {
     try {
       //완료
       if (available) {
         console.log("ss");
-        setLoginErr(true);
+        deleteBtnBlock(true);
       } else {
-        setLoginErr(false);
+        deleteBtnBlock(false);
       }
     } catch (error) {
       //실패하면 throw new Error("") 값 출력
@@ -35,7 +34,9 @@ export const TodoListItem: React.FC<TodoListItemProps> = ({
     <li className="d-flex justify-content-between align-items-center mb-2">
       <label
         className={
-          todo.complete ? "complete-item ms-2" : "no-complete-item ms-2"
+          todo.complete
+            ? "complete-item ms-2 clickable"
+            : "no-complete-item ms-2 clickable"
         }
       >
         <div className="check-box-container">
@@ -44,8 +45,7 @@ export const TodoListItem: React.FC<TodoListItemProps> = ({
             type="checkbox"
             checked={todo.complete}
             onChange={() => {
-              let mtodos = checkBoxClick(todo, number);
-              let available: boolean = toggleTodo(todo, mtodos);
+              let available: boolean = toggleTodo(todo);
               onDelete(available);
             }}
           />
@@ -55,14 +55,13 @@ export const TodoListItem: React.FC<TodoListItemProps> = ({
       </label>
       <div
         className="item-delete-btn-box me-4 ms-4"
-        style={{ display: mloginErr ? "block" : "none" }}
+        style={{ display: deleteBtn ? "block" : "none" }}
       >
         <button
           type="button"
           className="item-delete-btn btn btn-white"
           onClick={() => {
-            let mtodos = listDelete(todo, number);
-            toggleTodo(todo, mtodos);
+            deleteTodo(todo);
           }}
         />
       </div>
